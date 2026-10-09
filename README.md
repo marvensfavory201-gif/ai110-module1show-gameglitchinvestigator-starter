@@ -25,30 +25,23 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- **Purpose:** A modular Streamlit numbers guessing game that uses session states to track user points and attempts accurately across different difficulty levels.
+- **Bugs Found:** The "New Game" button logic was completely missing, an accidental variable reassignment constantly overrode the active game status back to playing, even-attempt indexes broke math checks by converting numbers into alphabetical strings, and wrong higher guesses incorrectly increased scores.
+- **Fixes Applied:** Restructured core mechanics into an external `logic_utils.py` module, built an active button conditional state wrapper to restart game variables, removed alphabetical type conversions, fixed score reductions, and wrote custom unit test validations.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User chooses a game difficulty setting (e.g., Normal) in the app sidebar.
+2. User looks at the allowed attempt limits and current search boundaries.
+3. User types a guess into the text block and hits the submit button.
+4. Game gives a correct directive warning hint ("Too High" or "Too Low").
+5. Score properly updates and drops by 5 points for a wrong guess attempt.
+6. Game halts further entries once the answer is found or attempts hit 0.
+7. User clicks the "New Game" button to clear arrays and restart.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
-```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
-
-## 🚀 Stretch Features
-
-- [ ] [If you choose to complete Challenge 4, describe the Enhanced UI changes here — a screenshot is optional]
